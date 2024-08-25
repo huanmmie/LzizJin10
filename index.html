@@ -12,7 +12,7 @@
             height: 100vh;
             font-family: 'Comic Sans MS', cursive, sans-serif;
             text-align: center;
-            background-color: #F0FFFF;
+            background-color: #BBFFFF;
         }
 
         .container {
@@ -38,6 +38,13 @@
 
         p {
             font-size: 1.5em;
+            margin-top: 10px;
+            margin-bottom: 50px;
+        }
+
+        .time {
+            margin-top: 20px;
+            font-size: 1.2em;
         }
 
         img {
@@ -45,8 +52,25 @@
             height: auto;
             display: block;
             margin: 0 auto;
+            opacity: 0.8;
         }
     </style>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const formattedDate = `${year}年${month}月${day}日`;
+            const formattedTime = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('current-time').innerHTML = `${formattedDate}<br><br>${formattedTime}`;
+        }
+
+        setInterval(updateTime, 1000);
+    </script>
 </head>
 <body>
     <div class="container">
@@ -54,6 +78,7 @@
         <div class="text-overlay">
             <h1>Welcome to our 1ST</h1>
             <p>From 2023.10.20 To 2024.10.20</p>
+            <div id="current-time" class="time"></div>
         </div>
     </div>
 </body>
