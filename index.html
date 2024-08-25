@@ -59,22 +59,23 @@
             opacity: 0.8;
         }
     </style>
-    <script>
-        function updateTime() {
-            const now = new Date();
-            const year = now.getFullYear();
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const day = String(now.getDate()).padStart(2, '0');
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            const formattedDate = `${year}年${month}月${day}日`;
-            const formattedTime = `${hours}:${minutes}:${seconds}`;
-            document.getElementById('current-time').innerHTML = `${formattedDate}<br><br>${formattedTime}`;
-        }
+<script>
+    function updateTime() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const formattedDate = `${year}年${month}月${day}日`;
+        const formattedTime = `${hours}:${minutes}:${seconds}`;
+        document.getElementById('current-time').innerHTML = `${formattedDate}<br>${formattedTime}`;
+    }
 
-        setInterval(updateTime, 1000);
-    </script>
+    setInterval(updateTime, 1000);
+</script>
+
 </head>
 <body>
     <div class="container">
